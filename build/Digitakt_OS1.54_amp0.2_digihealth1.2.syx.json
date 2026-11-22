@@ -1,0 +1,230 @@
+{
+ "patcher": "elekloader",
+ "device": "digitakt-mk1",
+ "stock": {
+  "path": "/home/claude/w/Digitakt_OS1.54.syx",
+  "sha256": "f78ba80fa7b1da5fb0e1ff61ad61e9e71aafe79f4364fc49679f3651353e3cf6",
+  "os": "1.54",
+  "main_sha256": "5c58bf9e3949ef09977c5fc007a61e8d026931f67f1621238379dfb8ee4d31a2"
+ },
+ "mods": [
+  {
+   "id": "core",
+   "version": "4.4",
+   "file": "core-4.4-os1.54.elemod",
+   "sha256": "8f6028f3267d10ca096ba8aadc0e4671d909cb2ca3ee3f485ac8089fdaaf26c6",
+   "format": 2,
+   "sites": 49,
+   "regions": [],
+   "names": [
+    "timer:DTIM0"
+   ]
+  },
+  {
+   "id": "digihealth",
+   "version": "1.2",
+   "file": "digihealth-1.2-os1.54.elemod",
+   "sha256": "a49752aa6c4b1da79fa5e1100af5ea68a3b9aa1f68d266f269ffa3b4e9a86a0c",
+   "format": 2,
+   "sites": 18,
+   "regions": [
+    {
+     "name": "FAST AUDIO block copy",
+     "lo": "0x80003360",
+     "hi": "0x80007f3c",
+     "area": "sram-block"
+    }
+   ],
+   "names": [
+    "settings:FAST AUDIO",
+    "settings:SYSTEM INFO",
+    "sysex:0x7d"
+   ]
+  },
+  {
+   "id": "amp-dt",
+   "version": "0.2",
+   "file": "amp-dt-0.2.elemod",
+   "sha256": "99863ed8a8c48413af3d0732102bf9d80c7fdb4b60a650b3a5ea5dbf929433ad",
+   "format": 2,
+   "sites": 1,
+   "regions": [],
+   "names": [
+    "render:AMP envelope",
+    "ui:AMP page FUNC+A",
+    "ui:AMP page FUNC+B"
+   ]
+  }
+ ],
+ "main_sha256": "c7a88e6276c2d83bc8f4c4db6fdf2f4d9c36e41d5f61224e26a4f6906a93f2a9",
+ "main_len": 2499836,
+ "link": {
+  "order": [
+   "core 4.4",
+   "amp-dt 0.2",
+   "digihealth 1.2"
+  ],
+  "layout": {
+   "boot": [
+    1076222528,
+    1076222616
+   ],
+   "run_load": 1076222624,
+   "ddr": [
+    1203503104,
+    1203523164
+   ],
+   "bss": [
+    1203523164,
+    1203526108
+   ],
+   "fast": [
+    2147546880,
+    2147546880
+   ],
+   "blob_len": 20156,
+   "payload": null,
+   "sections": {
+    "core .boot": 1076222528,
+    "core .run": 1203503104,
+    "amp-dt .run": 1203505400,
+    "digihealth .run": 1203516856,
+    "core .bss": 1203523164,
+    "amp-dt .bss": 1203523200,
+    "digihealth .bss": 1203523456
+   },
+   "ddr_spare": 239140,
+   "fast_spare": 2304,
+   "ddr_size": 262144,
+   "fast_size": 2304
+  },
+  "tables": {
+   "core_machines": {
+    "at": "0x47bc4d78",
+    "entries": 0,
+    "entry": 4
+   },
+   "core_mpages": {
+    "at": "0x47bc4d7c",
+    "entries": 0,
+    "entry": 4
+   },
+   "ev_draw": {
+    "at": "0x47bc4d80",
+    "entries": 2,
+    "entry": 4
+   },
+   "ev_enc": {
+    "at": "0x47bc4d8c",
+    "entries": 1,
+    "entry": 4
+   },
+   "ev_fxmix": {
+    "at": "0x47bc4d94",
+    "entries": 0,
+    "entry": 4
+   },
+   "ev_key": {
+    "at": "0x47bc4d98",
+    "entries": 1,
+    "entry": 4
+   },
+   "ev_live_note": {
+    "at": "0x47bc4da0",
+    "entries": 0,
+    "entry": 4
+   },
+   "ev_midi_cc": {
+    "at": "0x47bc4da4",
+    "entries": 0,
+    "entry": 4
+   },
+   "ev_render_in": {
+    "at": "0x47bc4da8",
+    "entries": 1,
+    "entry": 4
+   },
+   "ev_render_master": {
+    "at": "0x47bc4db0",
+    "entries": 0,
+    "entry": 4
+   },
+   "ev_render_out": {
+    "at": "0x47bc4db4",
+    "entries": 1,
+    "entry": 4
+   },
+   "ev_settings": {
+    "at": "0x47bc4dbc",
+    "entries": 3,
+    "entry": 4
+   },
+   "ev_tick": {
+    "at": "0x47bc4dcc",
+    "entries": 5,
+    "entry": 4
+   },
+   "fa_copies": {
+    "at": "0x47bc4de4",
+    "entries": 1,
+    "entry": 16
+   },
+   "fa_fixups": {
+    "at": "0x47bc4e04",
+    "entries": 10,
+    "entry": 8
+   }
+  }
+ },
+ "version": "AMP2",
+ "output": {
+  "sha256": "27bc327143c8f20ce62ce031c76351263fb117b3ba305d268a55b817fb908ee4",
+  "bytes": 1476256,
+  "messages": 11535,
+  "content_checksum": "0x2a07b25f",
+  "container_len": 1164784,
+  "flash_end": "0x19c5f0",
+  "flash_headroom": 1980944,
+  "ele3_version": "AMP2",
+  "main": {
+   "section": 3,
+   "stored": 1013284,
+   "image": 2499836,
+   "sha256": "c7a88e6276c2d83bc8f4c4db6fdf2f4d9c36e41d5f61224e26a4f6906a93f2a9",
+   "staged_to": "0x402f7624",
+   "inplace_min_gap": 609569
+  },
+  "sections": {
+   "5": {
+    "stored": 15,
+    "stored_sha256": "faaa4adfd799a90a8a2d551f7009cc04dc39a57f876f453d85e57ad55dc9947e",
+    "stock": true
+   },
+   "2": {
+    "stored": 15128,
+    "stored_sha256": "1e4a0473f963ce3f563c6533adecb8bb57b2f8c6a13861ff8327dabdeacbd48b",
+    "stock": true
+   },
+   "3": {
+    "stored": 1013284,
+    "stored_sha256": "a86d07f71c66f5af2ee1ff1a90d0c9e2851dc7f646cab42a784bba5623040a42",
+    "stock": false
+   },
+   "4": {
+    "stored": 32776,
+    "stored_sha256": "a874ca9b9165ffecca865b037450a158a73da0ad603d60c6c5e7262ebd9e0db8",
+    "stock": true
+   },
+   "8": {
+    "stored": 103416,
+    "stored_sha256": "764f169834ac9ebcdbc1fd883e9f941be1eb43c2d57e4ff02e04685550838b06",
+    "stock": true
+   }
+  },
+  "untouched": [
+   "sections 2, 4, 5, 8, byte for byte"
+  ],
+  "path": "/mnt/user-data/outputs/amp/Digitakt_OS1.54_amp0.2_digihealth1.2.syx"
+ },
+ "map": "Digitakt_OS1.54_amp0.2_digihealth1.2.syx.map.json"
+}

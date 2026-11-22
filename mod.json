@@ -1,0 +1,57 @@
+{
+ "id": "amp-dt",
+ "version": "0.2",
+ "title": "AMP+ (envelope curves and a tempo-synced hold on the AMP page)",
+ "category": "Sound",
+ "author": "JohanStache (with Claude); after the Analog Rytm's improved AMP page",
+ "license": "GPL-2.0-or-later",
+ "description": "The AMP envelope with five curves and a tempo-synced hold, per track. On the AMP page, FUNC + A picks the curve: STK (stock: linear attack, exponential decay), LIN (linear both ways: the decay ends where the stock is 40 dB down), EXP (swells in, then falls at once: snappy), LOG (quick rounded attack, the decay stays up then falls: round and full) or PNCH (the fastest attack, a full body then a quick fall: punchy, gated). FUNC + B sets the hold FREE (stock) or SYNC: HOLD picks one of sixteen note values from 1/64 to a bar at the project tempo (HOLD 127 stays NOTE). A detent a step, drawn at once. Holding FUNC shows the real curve shape with its name inverted and the hold mode, and the attack, hold and decay times in the title bar; a track on a curve or a synced hold keeps that picture. Shaped curves follow the knobs' full resolution, so an LFO on ATK or DEC moves smoothly. A track on STK with a free hold runs the stock code, unchanged. The settings live in RAM: every track starts on STK and FREE at power-on.",
+ "device": "digitakt-mk1",
+ "os": "1.54",
+ "sources": [
+  "amp.s",
+  "env.c",
+  "ui.c"
+ ],
+ "sites": [
+  {
+   "addr": "0x400716c0",
+   "stock": "4fefffc448d77cfc",
+   "op": "jmp",
+   "target": "amp_env"
+  }
+ ],
+ "requires": [
+  "core"
+ ],
+ "resources": {
+  "names": [
+   "render:AMP envelope",
+   "ui:AMP page FUNC+A",
+   "ui:AMP page FUNC+B"
+  ],
+  "core": "4.1"
+ },
+ "subscribe": [
+  {
+   "event": "ev_key",
+   "fn": "amp_key",
+   "order": 40
+  },
+  {
+   "event": "ev_enc",
+   "fn": "amp_enc",
+   "order": 40
+  },
+  {
+   "event": "ev_tick",
+   "fn": "amp_tick",
+   "order": 60
+  },
+  {
+   "event": "ev_draw",
+   "fn": "amp_draw",
+   "order": 65
+  }
+ ]
+}
